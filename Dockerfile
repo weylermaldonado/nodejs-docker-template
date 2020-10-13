@@ -9,7 +9,8 @@ USER node
 
 WORKDIR /usr/src/app
 
-ENV NODE_ENV=production
+ARG NODE_ENV=development
+ENV NODE_ENV ${NODE_ENV}
 ENV PATH=/usr/src/app/node_modules/.bin:$PATH
 
 # Install dependencies
