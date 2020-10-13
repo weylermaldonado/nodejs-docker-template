@@ -2,11 +2,20 @@ FROM node:12-slim
 
 # Create app directory
 RUN mkdir -p /usr/src/app
+
+RUN chown -R node:node /usr/src/app
+USER node
+
+
 WORKDIR /usr/src/app
+
+ENV NODE_ENV=development
+ENV PATH=/usr/src/app/node_modules/.bin:$PATH
 
 # Install dependencies
 COPY package.json .
-RUN npm install
+COPY package-lock.json .
+RUN npm ci && npm cache clean --force
 
 # Bundle app source
 COPY . .
