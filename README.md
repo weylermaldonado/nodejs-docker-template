@@ -1,13 +1,8 @@
 # Levantar el proyecto
 
-Instalar dependencias
+Usando docker compose
 ```bash
-npm i
-```
-
-Correr el servidor
-```bash
-npm run dev
+docker-compose up
 ```
 
 
